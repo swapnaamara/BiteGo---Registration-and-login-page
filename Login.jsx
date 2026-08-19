@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './Login.css';
 
 function Login({ onLogin, goToRegister, users }) {
+  
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState("");
 
   const handleLogin = () => {
     const user = users.find(u => u.email === form.email && u.password === form.password);
+    
     if(user){
       onLogin(user.fullName);
     } else {
